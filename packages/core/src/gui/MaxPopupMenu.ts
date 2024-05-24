@@ -53,7 +53,7 @@ import { PopupMenuItem } from '../types';
  */
 class MaxPopupMenu extends EventSource {
   constructor(
-    factoryMethod?: (handler: PopupMenuItem, cell: Cell | null, me: MouseEvent) => void
+    factoryMethod?: (handler: MaxPopupMenu, cell: Cell | null, me: MouseEvent) => void
   ) {
     super();
 
@@ -100,7 +100,7 @@ class MaxPopupMenu extends EventSource {
    * current panning handler, the <Cell> under the mouse and the mouse
    * event that triggered the call as arguments.
    */
-  factoryMethod?: (handler: PopupMenuItem, cell: Cell | null, me: MouseEvent) => void;
+  factoryMethod?: (handler: MaxPopupMenu, cell: Cell | null, me: MouseEvent) => void;
 
   /**
    * Specifies if popupmenus should be activated by clicking the left mouse
@@ -450,7 +450,7 @@ class MaxPopupMenu extends EventSource {
       }
 
       this.itemCount = 0;
-      this.factoryMethod(<PopupMenuItem>(<unknown>this), cell, evt);
+      this.factoryMethod(<MaxPopupMenu>(<unknown>this), cell, evt);
 
       if (this.itemCount > 0) {
         this.showMenu();
